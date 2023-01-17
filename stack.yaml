@@ -1,0 +1,7 @@
+---
+stack:
+  repository: https://github.com/gimlet-io/gimlet-stack-reference.git?tag=v0.18.0
+config:
+  nginx:
+    enabled: true
+    host: deleteme.turbopizza.net
