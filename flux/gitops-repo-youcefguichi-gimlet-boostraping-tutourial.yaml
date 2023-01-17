@@ -1,0 +1,43 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial
+  namespace: flux-system
+spec:
+  interval: 15s
+  ref:
+    branch: main
+  secretRef:
+    name: deploy-key-youcefguichi-gimlet-boostraping-tutourial
+  url: ssh://git@github.com/YoucefGuichi/gimlet-boostraping-tutourial
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial-dependencies
+  namespace: flux-system
+spec:
+  interval: 24h0m0s
+  path: ./dependencies
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial
+  validation: client
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial
+  namespace: flux-system
+spec:
+  dependsOn:
+  - name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial-dependencies
+  interval: 24h0m0s
+  path: ./
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: gitops-repo-youcefguichi-gimlet-boostraping-tutourial
+  validation: client
