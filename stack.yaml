@@ -1,6 +1,6 @@
 ---
 stack:
-  repository: https://github.com/gimlet-io/gimlet-stack-reference.git?tag=v0.18.0
+  repository: /Users/youcefguichi/gimlet-stack-reference
 config:
   nginx:
     enabled: true
