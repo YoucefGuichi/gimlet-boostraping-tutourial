@@ -9,8 +9,8 @@ spec:
   releaseName: keda
   chart:
     spec:
-      chart: ingress-nginx
-      version: 2.9.3
+      chart: keda
+      version: 2.9.2
       sourceRef:
         kind: HelmRepository
         name: keda
