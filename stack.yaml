@@ -3,7 +3,7 @@ stack:
   repository: /Users/youcefguichi/gimlet-stack-reference
 config:
   keda:
-    enabled: true
+    enabled: false
   nginx:
     enabled: true
     host: deleteme.turbopizza.net
